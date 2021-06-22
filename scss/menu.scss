@@ -1,0 +1,158 @@
+// მთავარი მენიუ
+ul.nav{
+	@media(max-width: 992px){
+		display: none;
+	}
+}
+// მთავარი მენიუ
+// რესპონსივ მენიუ
+div.resp_menu{
+	display: none;
+	position: absolute;
+	width: 35px;
+	height: 35px;
+	top: 30px;
+	right: 15px;
+	z-index: 1000;
+	@media(max-width: 992px){
+		display: block;
+	}
+	div.resp_menu_toggle{
+		position: absolute;
+		width: 35px;
+		height: 35px;
+		background-color: transparent;
+		cursor: pointer;
+		transition: all 0.4s;
+		div{
+			position: absolute;
+			width: 15px;
+			height: 3px;
+			top: 50%;
+			left: 0;
+			background-color: #0F5F6A;
+			transition: all 0.4s;
+			&:first-child{
+				margin-top: -8px;
+				width: 16px;
+			}
+			&:nth-child(2){
+				width: 30px;
+			}
+			&:last-child{
+				margin-top: 8px;
+				width: 19px;
+			}
+		}
+		&.resp_menu_toggled{
+			width: 15px;
+			div{
+				transition: all 0.4s;
+				&:first-child,
+				&:last-child{
+					width: 20px;
+					opacity: 0;
+				}
+				&:nth-child(2){
+					transform: rotate(45deg);
+					width: 20px;
+				}
+				&:nth-child(3){
+					transform: rotate(-45deg);
+					width: 20px;
+				}
+			}
+		}
+	}
+	div.resp_menu_ul{
+		display: none;
+		position: absolute;
+		width: 200px;
+		top: 35px;
+		right: 0;
+		padding: 10px 15px;
+		background-color: black;
+		> ul{
+			@media(max-width: 992px){
+				display: block;
+			}
+			> li{
+				position: relative;
+				padding: 10px 5px;
+				border-bottom: 1px solid rgba(#fff, 0.1);
+				&:last-child{
+					border-bottom: none;
+				}
+				> em{
+					display: none;
+				}
+				> a{
+					display: block;
+					color: #fff;
+				}
+				div.plus_minus{
+					position: absolute;
+					width: 30px;
+					height: 30px;
+					top: 5px;
+					right: 0;
+					background-color: black;
+					cursor: pointer;
+					div.plus,
+					div.minus{
+						position: absolute;
+						width: 11px;
+						height: 1px;
+						background-color: #fff;
+						left: 50%;
+						top: 15px;
+						transform: translateX(-50%);
+					}
+					div.minus{
+						transform: translateX(-50%) rotate(90deg);
+					}
+					&.plus_minus_toggled{
+						div.minus{
+							transform: translateX(-50%) rotate(0deg);
+						}
+					}
+				}
+				ul{
+					display: none;
+					padding: 10px 0 0 5px;
+					li{
+						position: relative;
+						padding-bottom: 5px;
+						&:before{
+							display: block;
+							position: absolute;
+							content: "";
+							left: 0;
+							top: 10px;
+							width: 5px;
+							height: 1px;
+							background-color: #fff;
+						}
+						a{
+							display: block;
+							margin-left: 15px;
+							color: #fff;
+						}
+						ul{
+							padding-left: 15px;
+						}
+						div.plus_minus{
+							height: 20px;
+							top: 0px;
+							div.plus,
+							div.minus{
+								top: 10px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+// რესპონსივ მენიუ
